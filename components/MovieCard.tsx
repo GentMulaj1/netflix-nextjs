@@ -4,6 +4,7 @@ import FavoriteButton from '@/components/FavoriteButton';
 
 import { BsChevronBarDown } from 'react-icons/bs';
 import { BsPlayBtn } from 'react-icons/bs';
+import Image from "next/image"
 
 import { MovieInterface } from '@/types';
 import useInfoModalStore from '@/hooks/useInfoModalStore';
@@ -20,19 +21,25 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
 
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
-      <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
-        cursor-pointer
-        object-cover
-        transition
-        duration
-        shadow-xl
-        rounded-md
-        group-hover:opacity-90
-        sm:group-hover:opacity-0
-        delay-300
-        w-full
-        h-[12vw]
-      " />
+
+      <Image 
+        onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
+          cursor-pointer
+          object-cover
+          transition
+          duration
+          shadow-xl
+          rounded-md
+          group-hover:opacity-90
+          sm:group-hover:opacity-0
+          delay-300
+          w-full
+          h-[12vw]
+        "
+
+        width={200} height={200}
+      />
+
       <div className="
         opacity-0
         absolute
@@ -50,16 +57,19 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
         group-hover:translate-x-[2vw]
         group-hover:opacity-100
       ">
-        <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
-          cursor-pointer
-          object-cover
-          transition
-          duration
-          shadow-xl
-          rounded-t-md
-          w-full
-          h-[12vw]
-        " />
+
+        <Image 
+          onClick={redirectToWatch} width={200} height={200} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
+            cursor-pointer
+            object-cover
+            transition
+            duration
+            shadow-xl
+            rounded-t-md
+            w-full
+            h-[12vw]
+          "
+        />
         <div className="
           z-10
           bg-zinc-800
